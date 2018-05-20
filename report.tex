@@ -1,0 +1,134 @@
+% !TeX root = ./report.tex
+
+% Memoir is more versatile than other document classes like article, report, book etc,
+\documentclass[12pt,a4paper,oneside]{memoir}
+
+% To handle image, like scaling
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage[font=small,labelfont=bf]{caption}
+
+% Used for modifying page layout
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+% For referencing contents,figure,table...
+\usepackage[hidelinks]{hyperref}
+
+% To use references
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{references.bib}
+\DefineBibliographyStrings{english}{bibliography = {References}}
+\nocite{*}
+
+% For using text colors
+\usepackage{color}
+\definecolor{darkgray}{RGB}{0.40, 0.40, 0.40}
+\definecolor{redross}{RGB}{230, 0, 0}
+\definecolor{therablue}{RGB}{41, 134, 230}
+
+% For including source code
+\usepackage{listings}
+%define Javascript language
+
+\lstdefinelanguage{JavaScript}{
+    keywords={do, if, in, for, let, new, try, var, case, else, enum, eval, null, this, true, void, with, await, break, catch, class, const, false, super, throw, while, yield, delete, export, import, public, return, static, switch, typeof, default, extends, finally, package, private, continue, debugger, function, arguments, interface, protected, implements, instanceof},
+    ndkeywords={class, export, boolean, throw, implements, import, this},
+    sensitive=false,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]',
+    morestring=[b]"
+}
+
+\lstset{
+    basicstyle=\fontsize{10}{10}\selectfont\ttfamily,
+    keywordstyle=\color{therablue}\bfseries,
+    ndkeywordstyle=\color{redross}\bfseries,
+    numberstyle=\tiny\color{darkgray},
+    commentstyle=\color{darkgray}\ttfamily,
+    identifierstyle=\color{darkgray},
+    breakatwhitespace=false,
+    breaklines=true,
+    extendedchars=true,
+    keepspaces=true,
+    language=JavaScript,
+    numbers=left,
+    numbersep=10pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    stringstyle=\color{darkgray},
+    tabsize=2,
+    title=\lstname
+}
+
+% To use math symbols
+\usepackage{unicode-math}
+
+% To float images
+\usepackage{float}
+
+% To format URLs
+\usepackage{url}
+
+% Paragraph Formatting
+\sloppy
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Document starts here
+\begin{document}
+
+\newlength{\toptafiddle}
+\newlength{\bottafiddle}
+
+\include{title} % Include Title Page, (i.e. title.tex)
+
+% Page layout according to VTU specification
+% Right: 1.25in, Left: 1in, Top & Bottom: 0.75in in each page
+
+\setlength{\oddsidemargin}{0.25in} % Left side margin {1in by default + 0.25in}
+
+% Header specification
+\setlength{\headheight}{2\onelineskip}
+\setlength{\topmargin}{-0.5in}
+
+% Footer specification
+\setlength{\footskip}{2\onelineskip}
+\setlength{\footnotesep}{\onelineskip}
+
+% A4 paper height = 11.69in
+% thus 11.69in - 9.67in - 1in (top + header) is approx 0.75in left for bottom
+\setlength{\textheight}{9.67in}
+\brokenpenalty=10000
+\OnehalfSpacing
+
+\include{certificate}
+
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\include{abstract}
+\include{acknowledgement}
+\include{tableofcontents}
+
+\pagestyle{myheadings}
+\makeheadrule{myheadings}{\textwidth}{1pt}
+\makefootrule{myheadings}{\textwidth}{1pt}{\footruleskip}
+
+\makeoddhead{myheadings}{\small{Therabot - Your Pocket Therapist}}{}{\small{Chapter \thechapter}}
+\makeoddfoot{myheadings}{\scriptsize{Dept. Of CS\&E, DSCE, Bengaluru}}{}{\small{\thepage}}
+\pagenumbering{arabic}
+
+\include{introduction}
+\include{problem-statement}
+\include{literature-survey}
+\include{architecture-design}
+\include{implementation}
+\include{experimentation-results}
+\include{conclusion}
+\include{appendix}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}
