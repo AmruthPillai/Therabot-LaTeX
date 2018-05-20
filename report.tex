@@ -5,6 +5,9 @@
 
 % To handle image, like scaling
 \usepackage{graphicx}
+\graphicspath{{./images/}}
+
+% To handle english transcripts
 \usepackage[english]{babel}
 \usepackage[font=small,labelfont=bf]{caption}
 
@@ -16,7 +19,7 @@
 
 % To use references
 \usepackage[backend=bibtex]{biblatex}
-\addbibresource{references.bib}
+\addbibresource{references/references.bib}
 \DefineBibliographyStrings{english}{bibliography = {References}}
 \nocite{*}
 
@@ -28,8 +31,8 @@
 
 % For including source code
 \usepackage{listings}
-%define Javascript language
 
+%define Javascript language
 \lstdefinelanguage{JavaScript}{
     keywords={do, if, in, for, let, new, try, var, case, else, enum, eval, null, this, true, void, with, await, break, catch, class, const, false, super, throw, while, yield, delete, export, import, public, return, static, switch, typeof, default, extends, finally, package, private, continue, debugger, function, arguments, interface, protected, implements, instanceof},
     ndkeywords={class, export, boolean, throw, implements, import, this},
@@ -47,6 +50,7 @@
     numberstyle=\tiny\color{darkgray},
     commentstyle=\color{darkgray}\ttfamily,
     identifierstyle=\color{darkgray},
+    inputpath=./code/,
     breakatwhitespace=false,
     breaklines=true,
     extendedchars=true,
@@ -82,7 +86,7 @@
 \newlength{\toptafiddle}
 \newlength{\bottafiddle}
 
-\include{title} % Include Title Page, (i.e. title.tex)
+\include{pages/title/title} % Include Title Page, (i.e. title.tex)
 
 % Page layout according to VTU specification
 % Right: 1.25in, Left: 1in, Top & Bottom: 0.75in in each page
@@ -103,14 +107,14 @@
 \brokenpenalty=10000
 \OnehalfSpacing
 
-\include{certificate}
+\include{pages/certificate/certificate}
 
 \pagenumbering{roman}
 \pagestyle{plain}
 
-\include{abstract}
-\include{acknowledgement}
-\include{tableofcontents}
+\include{pages/abstract/abstract}
+\include{pages/acknowledgement/acknowledgement}
+\include{pages/table-of-contents/table-of-contents}
 
 \pagestyle{myheadings}
 \makeheadrule{myheadings}{\textwidth}{1pt}
@@ -120,14 +124,14 @@
 \makeoddfoot{myheadings}{\scriptsize{Dept. Of CS\&E, DSCE, Bengaluru}}{}{\small{\thepage}}
 \pagenumbering{arabic}
 
-\include{introduction}
-\include{problem-statement}
-\include{literature-survey}
-\include{architecture-design}
-\include{implementation}
-\include{experimentation-results}
-\include{conclusion}
-\include{appendix}
+\include{pages/introduction/introduction}
+\include{pages/problem-statement/problem-statement}
+\include{pages/literature-survey/literature-survey}
+\include{pages/architecture-design/architecture-design}
+\include{pages/implementation/implementation}
+\include{pages/experimentation-results/experimentation-results}
+\include{pages/conclusion/conclusion}
+\include{pages/appendix/appendix}
 
 \printbibliography[heading=bibintoc]
 
