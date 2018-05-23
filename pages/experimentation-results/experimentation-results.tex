@@ -162,6 +162,7 @@ By maintaining a constant Batch Size of 8, we gradually increment the Number of 
         2456(~2500) & 0.27993 & 0.9525 \\
         \hline
     \end{tabular}
+    \captionof{table}{Number of Epochs vs. Accuracy}\label{tbl:nicetablelesstable}
 \end{center}
 
 The outcome of any DNN model is two things. First, it should return the desired response precisely. Second, the loss at each iteration during training must be optimized. From the above table, it is evident that by increasing the batch size the losses are reduced.
@@ -217,6 +218,7 @@ By maintaining the number of epochs at 1000, we increase the batch size.
         48 & 0.83720 & 0.8264 \\
         \hline
     \end{tabular}
+    \captionof{table}{Batch Size vs. Accuracy}\label{tbl:nicetablelesstable}
 \end{center}
 
 On deeper analysis of the results, we understand that by increasing the batch\_size we approach the case of overfitting the data. Hence, nest accuracy is obtained when the batch size is 8(or 16) for most of the given kinds of dataset.

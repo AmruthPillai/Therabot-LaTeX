@@ -19,6 +19,7 @@
 
 % To use references
 \usepackage{csquotes}
+\usepackage{caption}
 \usepackage[backend=bibtex]{biblatex}
 \addbibresource{references/references.bib}
 \DefineBibliographyStrings{english}{bibliography = {References}}
@@ -87,11 +88,10 @@
 \newlength{\toptafiddle}
 \newlength{\bottafiddle}
 
-\include{pages/title/title} % Include Title Page, (i.e. title.tex)
+% \include{pages/title/title} % Include Title Page, (i.e. title.tex)
 
 % Page layout according to VTU specification
 % Right: 1.25in, Left: 1in, Top & Bottom: 0.75in in each page
-
 \setlength{\oddsidemargin}{0.25in} % Left side margin {1in by default + 0.25in}
 
 % Header specification
@@ -108,13 +108,14 @@
 \brokenpenalty=10000
 \OnehalfSpacing
 
-\include{pages/certificate/certificate}
+% \include{pages/certificate/certificate}
 
 \pagenumbering{roman}
 \pagestyle{plain}
 
-\include{pages/abstract/abstract}
-\include{pages/acknowledgement/acknowledgement}
+% \include{pages/abstract/abstract}
+% \include{pages/acknowledgement/acknowledgement}
+
 \include{pages/table-of-contents/table-of-contents}
 
 \pagestyle{myheadings}
@@ -123,6 +124,7 @@
 
 \makeoddhead{myheadings}{\small{Therabot - Your Pocket Therapist}}{}{\small{Chapter \thechapter}}
 \makeoddfoot{myheadings}{\scriptsize{Dept. Of CS\&E, DSCE, Bengaluru}}{}{\small{\thepage}}
+
 \pagenumbering{arabic}
 
 \include{pages/introduction/introduction}
